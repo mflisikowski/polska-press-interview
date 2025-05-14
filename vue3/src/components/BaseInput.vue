@@ -26,6 +26,7 @@
 <script setup lang="ts">
 import type { BaseInputProps } from "../types";
 
+import { DEFAULT_INPUT_TYPE } from "../constants";
 import { computed, useAttrs } from "vue";
 
 const props = defineProps<BaseInputProps>();
@@ -42,7 +43,7 @@ const modelValueProxy = computed({
   set: (val) => emit("update:modelValue", val),
 });
 
-const type = props.type || "text";
+const type = props.type || DEFAULT_INPUT_TYPE;
 
 function onCheckboxChange(event: Event) {
   const checked = (event.target as HTMLInputElement).checked;

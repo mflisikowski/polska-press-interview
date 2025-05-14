@@ -1,9 +1,9 @@
 import type { Todo } from "../types";
 
+import { LOCAL_STORAGE_KEY } from "../constants";
+
 import { ref, watch, readonly } from "vue";
 import { defineStore } from "pinia";
-
-const LOCAL_STORAGE_KEY = "todos";
 
 function loadTodos(): Todo[] {
   try {

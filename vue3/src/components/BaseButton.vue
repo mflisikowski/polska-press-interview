@@ -15,21 +15,18 @@
 <script setup lang="ts">
 import type { BaseButtonProps } from "../types";
 
+import { BUTTON_COLOR_CLASSES } from "../constants";
+import { DEFAULT_BUTTON_COLOR } from "../constants";
+import { DEFAULT_BUTTON_TYPE } from "../constants";
+
 import { computed } from "vue";
 
 const props = withDefaults(defineProps<BaseButtonProps>(), {
-  type: "button",
-  color: "primary",
+  color: DEFAULT_BUTTON_COLOR,
+  type: DEFAULT_BUTTON_TYPE,
 });
 
-const colorClass = computed(() => {
-  switch (props.color) {
-    case "primary":
-      return "bg-blue-600 text-white hover:bg-blue-700";
-    case "danger":
-      return "bg-red-500 text-white hover:bg-red-700";
-    default:
-      return "bg-gray-200 text-gray-800 hover:bg-gray-300";
-  }
-});
+const colorClass = computed(
+  () => BUTTON_COLOR_CLASSES[props.color] ?? BUTTON_COLOR_CLASSES.default
+);
 </script>
