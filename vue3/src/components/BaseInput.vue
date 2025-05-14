@@ -24,12 +24,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useAttrs } from "vue";
+import type { BaseInputProps } from "../types";
 
-interface BaseInputProps {
-  modelValue: string | number | boolean;
-  type?: string;
-}
+import { computed, useAttrs } from "vue";
 
 const props = defineProps<BaseInputProps>();
 const emit = defineEmits(["update:modelValue"]);

@@ -25,11 +25,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import BaseInput from "./BaseInput.vue";
-import BaseButton from "./BaseButton.vue";
+import type { TodoInputEmits } from "../types";
 
-const emit = defineEmits<(e: "add", text: string) => void>();
+import { ref, computed } from "vue";
+
+import BaseButton from "./BaseButton.vue";
+import BaseInput from "./BaseInput.vue";
+
+const emit = defineEmits<TodoInputEmits>();
 const input = ref("");
 const isValid = computed(() => !!input.value.trim());
 

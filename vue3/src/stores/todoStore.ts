@@ -1,11 +1,7 @@
-import { defineStore } from "pinia";
-import { ref, watch, readonly } from "vue";
+import type { Todo } from "../types";
 
-export interface Todo {
-  id: number;
-  text: string;
-  completed: boolean;
-}
+import { ref, watch, readonly } from "vue";
+import { defineStore } from "pinia";
 
 const LOCAL_STORAGE_KEY = "todos";
 

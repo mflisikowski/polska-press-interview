@@ -46,21 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Todo } from "../stores/todoStore";
-
-interface TodoItemProps {
-  todo: Todo;
-}
-
-interface TodoItemEmits {
-  (e: "toggle", id: number): void;
-  (e: "remove", id: number): void;
-  (e: "edit", payload: { id: number; text: string }): void;
-}
-
-interface TodoItemRefs {
-  editInput: HTMLInputElement | null;
-}
+import type { TodoItemProps, TodoItemEmits, TodoItemRefs } from "../types";
 
 import { ref, watch, nextTick } from "vue";
 

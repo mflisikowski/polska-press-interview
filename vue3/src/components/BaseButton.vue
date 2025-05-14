@@ -13,18 +13,14 @@
 </template>
 
 <script setup lang="ts">
+import type { BaseButtonProps } from "../types";
+
 import { computed } from "vue";
 
-const props = withDefaults(
-  defineProps<{
-    type?: "button" | "submit" | "reset";
-    color?: "primary" | "danger" | "default";
-  }>(),
-  {
-    type: "button",
-    color: "primary",
-  }
-);
+const props = withDefaults(defineProps<BaseButtonProps>(), {
+  type: "button",
+  color: "primary",
+});
 
 const colorClass = computed(() => {
   switch (props.color) {
